@@ -1,4 +1,4 @@
-name: Build and Upload Artifact
+name: Run Jest Tests
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,13 +16,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      name: Checkout code
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build
-    - uses: actions/upload-artifact@v2
-      with: 
-        name: build-artifacts
-        path: dist/  
+
+    - name: Install dependencies
+      run: npm ci  
+
+    - name: Run Jest
+      run: npm test
