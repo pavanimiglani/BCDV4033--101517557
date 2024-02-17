@@ -1,11 +1,8 @@
-// sample.test.js
-
-// A simple test
-test('adds 1 + 2 to equal 3', () => {
-    // Test inputs
-    const sum = 1 + 2;
+function sum(a, b) {
+    return a + b;
+  }
   
-    // Expected result
-    expect(sum).toBe(3);
+  test('adds 1 + 2 to equal 3', () => {
+    expect(sum(1, 2)).toBe(3);
   });
   
