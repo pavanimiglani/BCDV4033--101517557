@@ -1,6 +1,6 @@
 // src/index.js
 
-var greet = (name) => {
+const greet = (name) => {
     let greeting = `Hello, ${name}!`;
     console.log(greeting);
 };
