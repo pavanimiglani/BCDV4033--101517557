@@ -1,0 +1,12 @@
+name: Task 1
+
+on: [push]
+
+jobs:
+  echo_name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Echo Name
+        run: echo "Hello, Pavani!"
